@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataDash - Dashboard Météo</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="dashboard-container">
+    <!-- Header avec recherche -->
+    <header class="dashboard-header">
+      <h1>DataDash <span>Météo</span></h1>
+      
+      <form id="search-form" class="search-form">
+        <input type="text" id="city-input" placeholder="Rechercher une ville..." required>
+        <button type="submit">Rechercher</button>
+      </form>
+
+      <!-- Historique des 5 dernières recherches (Niveau 3) -->
+      <div id="history-container" class="history-container"></div>
+    </header>
+
+    <!-- Zone d'erreur -->
+    <div id="error-message" class="error-message hidden"></div>
+
+    <!-- Layout Grid du Dashboard -->
+    <main class="dashboard-grid">
+      
+      <!-- Widget 1 : Ville & Temps Actuel -->
+      <section class="card current-weather">
+        <h2 id="city-name">--</h2>
+        <div class="weather-main">
+          <img id="weather-icon" src="" alt="Icône météo" class="weather-icon">
+          <div class="temp-wrapper">
+            <span id="current-temp" class="temp">--</span><span class="unit">°C</span>
+          </div>
+        </div>
+        <p id="weather-description" class="description">--</p>
+      </section>
+
+      <!-- Widget 2 : Détails Météo -->
+      <section class="card weather-details">
+        <h3>Détails</h3>
+        <div class="detail-item">
+          <span>Humidité</span>
+          <strong id="humidity">--%</strong>
+        </div>
+        <div class="detail-item">
+          <span>Mise à jour à</span>
+          <strong id="update-time">--:--</strong>
+        </div>
+      </section>
+
+      <!-- Widget 3 : Prévisions 5 Jours (Niveau 3) -->
+      <section class="card forecast-card">
+        <h3>Prévisions sur 5 jours</h3>
+        <div id="forecast-list" class="forecast-list"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
